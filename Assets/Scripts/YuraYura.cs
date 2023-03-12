@@ -18,6 +18,8 @@ public class YuraYura : MonoBehaviour
     float xScaleDiff;
     float yScaleDiff;
 
+    public bool resetPos = true;
+
     void Start()
     {
         initialPos = transform.position;
@@ -32,6 +34,11 @@ public class YuraYura : MonoBehaviour
 
     void Update()
     {
+      execute();
+    }
+
+    void execute()
+    {
         float posTime = Time.time * posSpeed;
         float rotTime = Time.time * rotSpeed;
         float scaleTime = Time.time * scaleSpeed;
@@ -40,7 +47,11 @@ public class YuraYura : MonoBehaviour
         float xPos = Mathf.Sin(posTime + xPosDiff);
         //float yPos = Mathf.Sin(posTime + yPosDiff);
         Vector3 pos = new Vector3(xPos, 0f, 0f) * posAmount;
-        transform.position = initialPos + pos;
+
+        if (resetPos)
+        {
+            transform.position = initialPos + pos;
+        }
 
         float zRot = Mathf.Sin(rotTime + zRotDiff);
         Vector3 rot = initialRot + (new Vector3(0f, 0f, zRot) * rotAmount);
