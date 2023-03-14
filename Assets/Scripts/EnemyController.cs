@@ -1,11 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController: MonoBehaviour
 {
+    public int move;
+
+    private void Start()
+    {
+        move = Random.Range(-300, -100);
+    }
+
+    void Update()
+    {
+        // à íuÇçXêV
+        transform.Translate(0, move * Time.deltaTime, 0);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject, 0.2f);
+        //Destroy(gameObject, 0.2f);
     }
 }

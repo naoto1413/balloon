@@ -1,4 +1,5 @@
 using UnityEngine;
+using Common;
 
 public class BalloonController: MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class BalloonController: MonoBehaviour
 
     public float imageMarginX = 1f;
     public float imageMarginY = 2f;
+
+    void Start()
+    {
+        CanvasCoordinate.setCanvas(canvas);
+    }
 
     // Update is called once per frame
     void Update()
@@ -39,21 +45,6 @@ public class BalloonController: MonoBehaviour
         // 位置を更新
         transform.Translate(newPositionX, newPositionY, 0, Space.World);
 
-        // Canvasの四隅の座標を取得
-        RectTransform rectTransform = canvas.GetComponent<RectTransform>();
-
-        Vector3[] corners = new Vector3[4];
-
-        rectTransform.GetWorldCorners(corners);
-
-        // 左下座標
-        float minX = corners[0][0];
-        float minY = corners[0][1];
-
-        // 右上座標
-        float maxX = corners[2][0];
-        float maxY = corners[2][1];
-
 
         // 画像サイズの半分の値
         float imagePositionX = GetComponent<Collider2D>().bounds.extents.x;
@@ -61,8 +52,8 @@ public class BalloonController: MonoBehaviour
 
         // 画面外に出ないように調整
         transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, minX + (imagePositionX * imageMarginX), maxX - (imagePositionX * imageMarginX)),
-            Mathf.Clamp(transform.position.y, minY + (imagePositionY * imageMarginY), maxY - (imagePositionY * imageMarginY)),
+            Mathf.Clamp(transform.position.x, CanvasCoordinate.minX + (imagePositionX * imageMarginX), CanvasCoordinate.maxX - (imagePositionX * imageMarginX)),
+            Mathf.Clamp(transform.position.y, CanvasCoordinate.minY + (imagePositionY * imageMarginY), CanvasCoordinate.maxY - (imagePositionY * imageMarginY)),
             0
             );
     }
