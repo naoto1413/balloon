@@ -36,9 +36,6 @@ public class CreateEnemy : MonoBehaviour
 
     private void updateCreatedPrefab(GameObject prefab)
     {
-        // 角度を変更
-        prefab.transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(-30f, 30f));
-
         // Enemycanvasにセット
         prefab.transform.SetParent(canvas.transform, false);
     }

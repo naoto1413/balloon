@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 1820046191}
   - component: {fileID: 1820046196}
   - component: {fileID: 1820046198}
+  - component: {fileID: 1820046199}
   m_Layer: 5
   m_Name: Balloon
   m_TagString: Player
@@ -484,6 +485,27 @@ MonoBehaviour:
   canvas: {fileID: 98618953}
   imageMarginX: 1
   imageMarginY: 2
+--- !u!50 &1820046199
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820046189}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1893678911
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +690,8 @@ MonoBehaviour:
   EnemyPrefabs:
   - {fileID: 8628382467057844450, guid: 49df3d6a15f834544976e1fc5f4cfcf3, type: 3}
   - {fileID: 662796508650562190, guid: 6e38d37eaec0915458535c1e02d16ba0, type: 3}
-  time: 5
+  - {fileID: 5958239654153616082, guid: ee12a0fedc9836b4db05e1485d91c023, type: 3}
+  time: 1
   canvas: {fileID: 599067574}
 --- !u!4 &2032183185
 Transform:

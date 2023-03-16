@@ -25,6 +25,11 @@ public class BalloonController: MonoBehaviour
         MoveSwipe();
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("Hit!!");
+    }
+
     // スワイプして上下左右に動かす
     void MoveSwipe()
     {
