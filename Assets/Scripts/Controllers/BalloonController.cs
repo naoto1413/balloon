@@ -12,10 +12,6 @@ public class BalloonController: MonoBehaviour
     public float imageMarginX = 1f;
     public float imageMarginY = 2f;
 
-    public ParticleSystem particle;
-
-    public GameObject gameOverUICanvas;
-
     void Start()
     {
         CanvasCoordinate.setCanvas(canvas);
@@ -31,28 +27,7 @@ public class BalloonController: MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        RectTransform rect = GetComponent<RectTransform>();
-
-        Camera mainCamera = Camera.main;
-
-        //UI座標からスクリーン座標に変換
-        Vector3 screenPos = transform.position;
-
-        ////スクリーン座標→ワールド座標に変換
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-
-        // パーティクルシステムのインスタンスを生成する。
-        ParticleSystem newParticle = Instantiate(particle);
-
-        newParticle.transform.localPosition = worldPos;
-
-        // パーティクルを発生させる。
-        newParticle.Play();
-
-        // balloonを削除
-        Destroy(gameObject);
-
-        gameOverUICanvas.SetActive(true);
+        PlaySceneManager.gameOver(GameObject.Find("Balloon"));
     }
 
     // スワイプして上下左右に動かす
