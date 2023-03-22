@@ -2,46 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaySceneManager : MonoBehaviour
+namespace Managers
 {
-    public GameObject playerManager;
-    public GameObject enemyManager;
-
-    static public GameObject staticGameOverUICanvas;
-    static public ParticleSystem staticParticle;
-
-    public GameObject gameOverUICanvas;
-    public ParticleSystem particle;
-
-    private void Start()
+    public class PlaySceneManager : MonoBehaviour
     {
-        staticGameOverUICanvas = gameOverUICanvas;
-        staticParticle = particle;
-    }
+        public GameObject playerManager;
+        public GameObject enemyManager;
 
-    static public void gameOver(GameObject balloon)
-    {
-        RectTransform rect = balloon.GetComponent<RectTransform>();
+        static public GameObject staticGameOverUICanvas;
+        static public ParticleSystem staticParticle;
 
-        Camera mainCamera = Camera.main;
+        public GameObject gameOverUICanvas;
+        public ParticleSystem particle;
 
-        //UI座標からスクリーン座標に変換
-        Vector3 screenPos = balloon.transform.position;
+        private void Start()
+        {
+            staticGameOverUICanvas = gameOverUICanvas;
+            staticParticle = particle;
+        }
 
-        ////スクリーン座標→ワールド座標に変換
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+        static public void gameOver(GameObject balloon)
+        {
+            RectTransform rect = balloon.GetComponent<RectTransform>();
 
-        // パーティクルシステムのインスタンスを生成する。
-        ParticleSystem newParticle = Instantiate(staticParticle);
+            Camera mainCamera = Camera.main;
 
-        newParticle.transform.localPosition = worldPos;
+            //UI座標からスクリーン座標に変換
+            Vector3 screenPos = balloon.transform.position;
 
-        // パーティクルを発生させる。
-        newParticle.Play();
+            ////スクリーン座標→ワールド座標に変換
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
 
-        // balloonを削除
-        Destroy(balloon);
+            // パーティクルシステムのインスタンスを生成する。
+            ParticleSystem newParticle = Instantiate(staticParticle);
 
-        staticGameOverUICanvas.SetActive(true);
+            newParticle.transform.localPosition = worldPos;
+
+            // パーティクルを発生させる。
+            newParticle.Play();
+
+            // balloonを削除
+            Destroy(balloon);
+
+            staticGameOverUICanvas.SetActive(true);
+        }
     }
 }
+
