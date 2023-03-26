@@ -30,7 +30,7 @@ namespace Controllers
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            PlaySceneManager.gameOver(GameObject.Find("Balloon"));
+            PlaySceneManager.GameOver(GameObject.Find("Balloon"));
         }
 
         // スワイプして上下左右に動かす
