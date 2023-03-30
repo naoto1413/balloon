@@ -10,7 +10,7 @@ public class BackGroundColorChange : MonoBehaviour
     // ”wŒi‚Ì”
     public int backGroundCount = 3;
     // ”wŒi‚Ì—¬‚ê‚é‘ŠÔ
-    private float totalTime;
+    public float totalTime;
     // ”wŒi‚ÌƒCƒ“ƒfƒbƒNƒX
     private int backGroundIndex = 0;
     

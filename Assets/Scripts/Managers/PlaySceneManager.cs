@@ -9,6 +9,7 @@ namespace Managers
     {
         public GameObject playerManager;
         public GameObject enemyManager;
+        public GameObject backGroundUIManager;
 
         static private GameObject staticGameOverUICanvas;
         static private ParticleSystem staticParticle;
@@ -18,18 +19,17 @@ namespace Managers
 
         static private float gameOverCoroutieTime = 0.9f;
 
+        private float totalGameTime;
+
         private void Start()
         {
             staticGameOverUICanvas = gameOverUICanvas;
             staticParticle = particle;
+            SetTotalGameTime();
         }
 
         static public void GameOver(GameObject balloon)
         {
-            RectTransform rect = balloon.GetComponent<RectTransform>();
-
-            Camera mainCamera = Camera.main;
-
             // UI座標からスクリーン座標に変換
             Vector3 screenPos = balloon.transform.position;
 
@@ -65,6 +65,11 @@ namespace Managers
         {
             SceneManager.LoadScene("Title");
         }
+
+        private void SetTotalGameTime()
+        {
+            totalGameTime = backGroundUIManager.GetComponent<BackGroundColorChange>().totalTime;
+        }
     }
 }
-
+　
