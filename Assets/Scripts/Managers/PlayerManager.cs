@@ -21,7 +21,7 @@ namespace Managers
                 SetIsGameClear(true);
             }
 
-            if (balloon.GetComponent<Controllers.BalloonController>().isEndClearMove)
+            if (balloon && balloon.GetComponent<Controllers.BalloonController>().isEndClearMove)
             {
                 SetIsEndClearMove(true);
             }

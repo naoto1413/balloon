@@ -32,11 +32,15 @@ namespace Managers
 
         public bool jumpSpacianFlg = false;
 
+        // SEÇ™ï°êîâÒñ¬ÇÈÇÃÇñhÇÆ
+        private bool isPlaySuccessSE = false;
+
         // Start is called before the first frame update
         void Start()
         {
             CanvasCoordinate.setCanvas(uiCanvas);
             setStartPosition();
+            TuneBGMVolume(0.5f);
         }
 
         // Update is called once per frame
@@ -71,7 +75,7 @@ namespace Managers
                 }
             }
 
-            if (IsEndSpacianJump())
+            if (IsEndSpacianJump() && !clearUICanvas.activeSelf)
             {
                 GlobalCoroutine.Run(SetActiveClearUICanvas(setActiveClearUICanvasCoroutieTime));
             }
@@ -109,6 +113,7 @@ namespace Managers
             yield return new WaitForSeconds(coroutieTime);
 
             particle.Play();
+            PlayBombSE();
             Destroy(balloon);
             loveLetter.SetActive(true);
 
@@ -120,6 +125,15 @@ namespace Managers
             yield return new WaitForSeconds(coroutieTime);
 
             clearUICanvas.SetActive(true);
+
+            StopBGM();
+
+            if (!isPlaySuccessSE)
+            {
+                PlaySuccessSE();
+                isPlaySuccessSE = true;
+            }
+            
         }
 
         private IEnumerator JumpSpacian(float coroutieTime)
@@ -142,6 +156,36 @@ namespace Managers
         public void OnBackButton()
         {
             SceneManager.LoadScene("Title");
+        }
+
+        public void PlayButtonSE()
+        {
+            SoundManager.instance.PlayButtonSE();
+        }
+
+        public void PlayBombSE()
+        {
+            SoundManager.instance.PlayBombSE();
+        }
+
+        public void PlayJumpSE()
+        {
+            SoundManager.instance.PlayJumpSE();
+        }
+
+        public void StopBGM()
+        {
+            SoundManager.instance.StopBGM();
+        }
+
+        public void TuneBGMVolume(float volume)
+        {
+            SoundManager.instance.TuneBGMVolume(volume);
+        }
+
+        public void PlaySuccessSE()
+        {
+            SoundManager.instance.PlaySuccessSE();
         }
     }
 }

@@ -51,6 +51,7 @@ namespace Controllers
             if (GetIsAvailableJump())
             {
                 rb2d.velocity = new Vector3(0, 100, 0);
+                clearSceneManager.GetComponent<Managers.ClearSceneManager>().PlayJumpSE();
                 rb2d.AddForce(transform.up * jumpingPower);
                 jumpCount++;
                 SetIsAvailableJump(false);

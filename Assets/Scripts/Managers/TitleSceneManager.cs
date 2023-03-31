@@ -9,6 +9,11 @@ namespace Managers
         {
             SceneManager.LoadScene("Play");
         }
+
+        public void PlayButtonSE()
+        {
+            SoundManager.instance.PlayButtonSE();
+        }
     }
 }
 

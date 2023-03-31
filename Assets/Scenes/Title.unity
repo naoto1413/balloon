@@ -221,7 +221,7 @@ MonoBehaviour:
   scaleSpeed: 0
   posAmount: 3
   rotAmount: 3
-  scaleAmount: 1
+  scaleAmount: 0
   resetPos: 1
 --- !u!1 &410722135
 GameObject:
@@ -905,8 +905,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 482983732}
-        m_TargetAssemblyTypeName: TitlePresenter, Assembly-CSharp
+        m_TargetAssemblyTypeName: Managers.TitleSceneManager, Assembly-CSharp
         m_MethodName: OnStartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 482983732}
+        m_TargetAssemblyTypeName: Managers.TitleSceneManager, Assembly-CSharp
+        m_MethodName: PlayButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1077,6 +1089,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
+--- !u!1001 &7174176739570336413
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1255701441, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -867.7257
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -416.0675
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.044737
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923717, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923718, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923718, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
 --- !u!1001 &7456084822168968442
 PrefabInstance:
   m_ObjectHideFlags: 0

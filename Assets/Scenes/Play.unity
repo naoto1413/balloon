@@ -636,6 +636,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
+--- !u!1001 &1009570352
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -867.7257
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -416.0675
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.044737
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923713, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923717, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174176738456923718, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eb33ecd538872dc499dd483f586f9f48, type: 3}
 --- !u!1 &1021770534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6136122663915933492, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
@@ -900,6 +961,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1389325369}
         m_TargetAssemblyTypeName: Managers.PlaySceneManager, Assembly-CSharp
         m_MethodName: OnBackButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1389325369}
+        m_TargetAssemblyTypeName: Managers.PlaySceneManager, Assembly-CSharp
+        m_MethodName: PlayButtonSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1421,6 +1494,18 @@ MonoBehaviour:
           m_StringArgument: Managers.Pla
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1389325369}
+        m_TargetAssemblyTypeName: Managers.PlaySceneManager, Assembly-CSharp
+        m_MethodName: PlayButtonSE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1865311478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,7 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3ff75f76420334797a9e14dec30102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backGroundPerTime: 5
+  backGroundPerTime: 60
   backGroundCount: 3
   totalTime: 0
   hueList:
@@ -1908,9 +1993,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefabs:
   - {fileID: 8628382467057844450, guid: 49df3d6a15f834544976e1fc5f4cfcf3, type: 3}
+  - {fileID: 8628382467057844450, guid: 9839261a37aa8f149b77a2d68e2d3fb7, type: 3}
+  - {fileID: 8628382467057844450, guid: cef5f009463772a46b3806c209c6f696, type: 3}
   - {fileID: 662796508650562190, guid: 6e38d37eaec0915458535c1e02d16ba0, type: 3}
+  - {fileID: 662796508650562190, guid: 7bb047d75ae8a6c4fb80ed09946b9e91, type: 3}
+  - {fileID: 5958239654153616082, guid: bc7b26b272b75e3418c748e45685c72d, type: 3}
+  - {fileID: 5958239654153616082, guid: 7d5de711597f5aa46b43d7dac09035da, type: 3}
   - {fileID: 5958239654153616082, guid: ee12a0fedc9836b4db05e1485d91c023, type: 3}
-  createTime: 100
+  createTime: 2
   canvas: {fileID: 599067574}
 --- !u!4 &2032183185
 Transform:

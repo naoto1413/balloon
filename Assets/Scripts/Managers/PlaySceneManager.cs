@@ -27,9 +27,12 @@ namespace Managers
 
         private void Start()
         {
+            SoundManager.instance.PlayBGM();
             staticGameOverUICanvas = gameOverUICanvas;
             staticParticle = particle;
             SetTotalGameTime();
+            TuneBGMVolume(1.0f);
+
         }
 
         private void Update()
@@ -50,6 +53,8 @@ namespace Managers
 
         static public void GameOver(GameObject balloon)
         {
+            StopBGM();
+
             // UI座標からスクリーン座標に変換
             Vector3 screenPos = balloon.transform.position;
 
@@ -63,6 +68,8 @@ namespace Managers
             
             // パーティクルを発生させる。
             newParticle.Play();
+
+            PlayBombSE();
 
             // balloonを削除
             Destroy(balloon);
@@ -94,12 +101,31 @@ namespace Managers
         private void SetTotalGameTime()
         {
             totalGameTime = backGroundUIManager.GetComponent<BackGroundColorChange>().totalTime;
-            Debug.Log(totalGameTime);
         }
 
         private void SetIsGameClear(bool flag)
         {
             isGameClear = flag;
+        }
+
+        public void PlayButtonSE()
+        {
+            SoundManager.instance.PlayButtonSE();
+        }
+
+        public static void PlayBombSE()
+        {
+            SoundManager.instance.PlayBombSE();
+        }
+
+        public static void StopBGM()
+        {
+            SoundManager.instance.StopBGM();
+        }
+
+        public void TuneBGMVolume(float volume)
+        {
+            SoundManager.instance.TuneBGMVolume(volume);
         }
     }
 }
