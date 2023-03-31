@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 1243240514}
   mouseSensitivity: 200
-  touchSensitivity: 200
+  touchSensitivity: 15
   canvas: {fileID: 98618953}
   imageMarginX: 1
   imageMarginY: 2
@@ -1936,7 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3ff75f76420334797a9e14dec30102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backGroundPerTime: 60
+  backGroundPerTime: 40
   backGroundCount: 3
   totalTime: 0
   hueList:
@@ -2000,7 +2000,7 @@ MonoBehaviour:
   - {fileID: 5958239654153616082, guid: bc7b26b272b75e3418c748e45685c72d, type: 3}
   - {fileID: 5958239654153616082, guid: 7d5de711597f5aa46b43d7dac09035da, type: 3}
   - {fileID: 5958239654153616082, guid: ee12a0fedc9836b4db05e1485d91c023, type: 3}
-  createTime: 2
+  createTime: 2.5
   canvas: {fileID: 599067574}
 --- !u!4 &2032183185
 Transform:
