@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Common;
+using UnityEngine.SceneManagement;
 
 namespace Managers
 {
@@ -25,7 +26,9 @@ namespace Managers
 
         private bool isEndGame = false;
 
-        private float coroutieTime = 0.9f;
+        public float destroyBallooncoroutieTime = 0.9f;
+        public float setActiveClearUICanvasCoroutieTime = 0.7f;
+        public float jumpSpacianCoroutieTim = 0.9f;
 
         public bool jumpSpacianFlg = false;
 
@@ -64,13 +67,13 @@ namespace Managers
                     newParticle.transform.localPosition = new Vector3(worldPos.x, worldPos.y, 10);
 
                     // パーティクルを発生させて、バルーンを削除する。
-                    GlobalCoroutine.Run(DestroyBalloonCoroutine(coroutieTime, newParticle));
+                    GlobalCoroutine.Run(DestroyBalloonCoroutine(destroyBallooncoroutieTime, newParticle));
                 }
             }
 
             if (IsEndSpacianJump())
             {
-                clearUICanvas.SetActive(true);
+                GlobalCoroutine.Run(SetActiveClearUICanvas(setActiveClearUICanvasCoroutieTime));
             }
         }
 
@@ -109,11 +112,19 @@ namespace Managers
             Destroy(balloon);
             loveLetter.SetActive(true);
 
-            JumpSpacian();
+            GlobalCoroutine.Run(JumpSpacian(jumpSpacianCoroutieTim));
         }
 
-        private void JumpSpacian()
+        private IEnumerator SetActiveClearUICanvas(float coroutieTime)
         {
+            yield return new WaitForSeconds(coroutieTime);
+
+            clearUICanvas.SetActive(true);
+        }
+
+        private IEnumerator JumpSpacian(float coroutieTime)
+        {
+            yield return new WaitForSeconds(coroutieTime);
 
             SetJumpSpacianFlg(true);
         }
@@ -126,6 +137,11 @@ namespace Managers
         private bool IsEndSpacianJump()
         {
             return spacian.GetComponent<Controllers.SpacianController>().isEndJumpFlag;
+        }
+
+        public void OnBackButton()
+        {
+            SceneManager.LoadScene("Title");
         }
     }
 }

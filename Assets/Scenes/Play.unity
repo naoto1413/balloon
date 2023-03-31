@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733219747419406878, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4733219747419406878, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2cae7ada7a61a7243a9030452429e3de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e660b9aff2438a640b24008142b3b47d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -556,7 +556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733219747419406878, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4733219747419406878, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -671,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733219747419406878, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4733219747419406878, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -774,6 +774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1243240515}
+  - component: {fileID: 1243240516}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -788,14 +789,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243240514}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1243240516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243240514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 450f7577fd76edc4581305325d23ddc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGameClear: 0
+  isEndClearMove: 0
+  playSceneManager: {fileID: 1389325368}
+  balloon: {fileID: 1820046189}
 --- !u!1 &1335649349
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733219747419406878, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4733219747419406878, guid: 621d6008913a3384e816f29f45f053a5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1081,6 +1098,7 @@ MonoBehaviour:
   backGroundUIManager: {fileID: 2019559187}
   gameOverUICanvas: {fileID: 1021770534}
   particle: {fileID: 3346834552567685664, guid: 408687de977784141a5c38dfa3cc52f3, type: 3}
+  isGameClear: 0
 --- !u!4 &1389325370
 Transform:
   m_ObjectHideFlags: 0
@@ -1094,7 +1112,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1692098489
 GameObject:
@@ -1278,11 +1296,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd25551a7f6f9e4887a35da747a79ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1243240514}
   mouseSensitivity: 200
   touchSensitivity: 200
   canvas: {fileID: 98618953}
   imageMarginX: 1
   imageMarginY: 2
+  clearMoveSpeed: 3
+  isEndClearMove: 0
 --- !u!50 &1820046199
 Rigidbody2D:
   serializedVersion: 4
@@ -1830,7 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3ff75f76420334797a9e14dec30102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backGroundPerTime: 10
+  backGroundPerTime: 5
   backGroundCount: 3
   totalTime: 0
   hueList:
@@ -1853,7 +1874,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032183183
 GameObject:
@@ -1904,7 +1925,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2032183186
 MonoBehaviour:

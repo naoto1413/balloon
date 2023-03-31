@@ -6,6 +6,8 @@ namespace Controllers
 {
     public class BalloonController : MonoBehaviour
     {
+        public GameObject playerManager;
+
         // 変数宣言
         public float mouseSensitivity = 100;
         public float touchSensitivity = 100;
@@ -15,6 +17,16 @@ namespace Controllers
         public float imageMarginX = 1f;
         public float imageMarginY = 2f;
 
+        private float clearElapsedTime = 0f;
+        private float clearLerpRaterate;
+        public float clearMoveSpeed = 5f;
+        private Vector3 clearStartPos;
+        private Vector3 clearEndPos;
+        private bool isSetClearPos = false;
+
+        public bool isEndClearMove = false;
+
+
         void Start()
         {
             CanvasCoordinate.setCanvas(canvas);
@@ -23,14 +35,32 @@ namespace Controllers
         // Update is called once per frame
         void Update()
         {
-            // メソッドを呼び出す
-            ChangeRotation();
-            MoveSwipe();
+            if (playerManager.GetComponent<Managers.PlayerManager>().isGameClear)
+            {
+                ClearMove();
+
+                // 移動が完了したらフラグを変更する。
+                if (transform.position.y >= clearEndPos.y)
+                {
+                    SetIsEndClearMove(true);
+                }
+
+            }
+            else
+            {
+                // ゲームクリア以外の場合は操作できる
+                ChangeRotation();
+                MoveSwipe();
+            }
+            
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            PlaySceneManager.GameOver(GameObject.Find("Balloon"));
+            if (!playerManager.GetComponent<Managers.PlayerManager>().isGameClear)
+            {
+                PlaySceneManager.GameOver(GameObject.Find("Balloon"));
+            }
         }
 
         // スワイプして上下左右に動かす
@@ -66,7 +96,7 @@ namespace Controllers
                 );
         }
 
-        void ChangeRotation()
+        private void ChangeRotation()
         {
             if (Input.GetKey(KeyCode.RightArrow))
             {
@@ -77,6 +107,40 @@ namespace Controllers
             {
                 transform.rotation = Quaternion.Euler(0, 0, 10);
             }
+        }
+
+        private void SetClearPos()
+        {
+            // 1度目のみ設定する。
+            if(!isSetClearPos)
+            {
+                isSetClearPos = true;
+
+                // スタート位置を設定
+                clearStartPos = transform.position;
+
+                // 移動位置を設定
+                float imagePositionY = GetComponent<Collider2D>().bounds.extents.y;
+                clearEndPos = new Vector3(CanvasCoordinate.maxX / 2, (imagePositionY * imageMarginY) + CanvasCoordinate.maxY); 
+            }
+        }
+
+        private void ClearMove()
+        {
+            // ゲームクリア時の位置、移動位置を設定
+            SetClearPos();
+
+            // ゲームクリアの場合は操作不可
+            // 経過時間の加算
+            clearElapsedTime += Time.deltaTime;
+            // 割合計算
+            clearLerpRaterate = Mathf.Clamp01(clearElapsedTime / clearMoveSpeed);
+            transform.position = Vector3.Lerp(clearStartPos, clearEndPos, clearLerpRaterate);
+        }
+
+        private void SetIsEndClearMove(bool flag)
+        {
+            isEndClearMove = true;
         }
     }
 }

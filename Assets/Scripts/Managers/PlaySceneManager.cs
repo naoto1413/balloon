@@ -21,11 +21,31 @@ namespace Managers
 
         private float totalGameTime;
 
+        private float elapsedTime = 0f;
+
+        public bool isGameClear = false;
+
         private void Start()
         {
             staticGameOverUICanvas = gameOverUICanvas;
             staticParticle = particle;
             SetTotalGameTime();
+        }
+
+        private void Update()
+        {
+            if (playerManager.GetComponent<Managers.PlayerManager>().isEndClearMove)
+            {
+                LoadScene("Clear");
+            }
+
+            // Œo‰ßŽžŠÔ‚Ì‰ÁŽZ
+            elapsedTime += Time.deltaTime;
+            
+            if(elapsedTime >= totalGameTime)
+            {
+                SetIsGameClear(true);
+            }
         }
 
         static public void GameOver(GameObject balloon)
@@ -56,19 +76,30 @@ namespace Managers
             staticGameOverUICanvas.SetActive(true);
         }
 
+        public void LoadScene(string scene)
+        {
+            SceneManager.LoadScene(scene);
+        }
+
         public void OnRetryButton()
         {
-            SceneManager.LoadScene("Play");
+            LoadScene("Play");
         }
 
         public void OnBackButton()
         {
-            SceneManager.LoadScene("Title");
+            LoadScene("Title");
         }
 
         private void SetTotalGameTime()
         {
             totalGameTime = backGroundUIManager.GetComponent<BackGroundColorChange>().totalTime;
+            Debug.Log(totalGameTime);
+        }
+
+        private void SetIsGameClear(bool flag)
+        {
+            isGameClear = flag;
         }
     }
 }

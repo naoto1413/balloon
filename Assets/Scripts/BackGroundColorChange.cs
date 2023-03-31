@@ -56,13 +56,17 @@ public class BackGroundColorChange : MonoBehaviour
 
     public GameObject gameOverUICanvas;
 
+    private void Awake()
+    {
+        totalTime = backGroundPerTime * backGroundCount;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         //Imageコンポーネント取得
         imageback = imageBack.GetComponent<Image>();
 
-        totalTime = backGroundPerTime * backGroundCount;
 
         saturation_speed = SATURATION_DECREASE_MAX / backGroundPerTime;
         value_speed = VALUE_DECREASE_MAX / backGroundPerTime;

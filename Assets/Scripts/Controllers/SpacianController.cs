@@ -6,7 +6,7 @@ namespace Controllers
 {
     public class SpacianController : MonoBehaviour
     {
-        public float jumpingPower = 1000f;
+        public float jumpingPower;
         private Rigidbody2D rb2d;
 
         private GameObject clearSceneManager;
@@ -50,6 +50,7 @@ namespace Controllers
         {
             if (GetIsAvailableJump())
             {
+                rb2d.velocity = new Vector3(0, 100, 0);
                 rb2d.AddForce(transform.up * jumpingPower);
                 jumpCount++;
                 SetIsAvailableJump(false);
