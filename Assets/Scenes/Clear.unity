@@ -1471,7 +1471,7 @@ MonoBehaviour:
   rotSpeed: 3
   scaleSpeed: 0
   posAmount: 5
-  rotAmount: 5
+  rotAmount: 7
   scaleAmount: 0
   resetPos: 0
 --- !u!1001 &1505998523

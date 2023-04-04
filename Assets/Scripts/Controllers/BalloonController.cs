@@ -7,6 +7,8 @@ namespace Controllers
     public class BalloonController : MonoBehaviour
     {
         public GameObject playerManager;
+        public GameObject tapManager;
+
 
         // ïœêîêÈåæ
         public float mouseSensitivity = 100;
@@ -17,6 +19,8 @@ namespace Controllers
         public float imageMarginX = 1f;
         public float imageMarginY = 2f;
 
+        public float movingRotation = 15f;
+
         private float clearElapsedTime = 0f;
         private float clearLerpRaterate;
         public float clearMoveSpeed = 5f;
@@ -25,7 +29,6 @@ namespace Controllers
         private bool isSetClearPos = false;
 
         public bool isEndClearMove = false;
-
 
         void Start()
         {
@@ -98,14 +101,14 @@ namespace Controllers
 
         private void ChangeRotation()
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) || tapManager.GetComponent<Managers.TapManager>().isRightSwipe)
             {
-                transform.rotation = Quaternion.Euler(0, 0, -10);
+                transform.rotation = Quaternion.Euler(0, 0, -movingRotation);
 
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.LeftArrow) || tapManager.GetComponent<Managers.TapManager>().isLeftSwipe)
             {
-                transform.rotation = Quaternion.Euler(0, 0, 10);
+                transform.rotation = Quaternion.Euler(0, 0, movingRotation);
             }
         }
 

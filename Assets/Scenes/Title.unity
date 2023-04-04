@@ -220,7 +220,7 @@ MonoBehaviour:
   rotSpeed: 3
   scaleSpeed: 0
   posAmount: 3
-  rotAmount: 3
+  rotAmount: 7
   scaleAmount: 0
   resetPos: 1
 --- !u!1 &410722135
@@ -742,7 +742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: baloon
+  m_text: balloon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 511e856d8a1fb2b4aad260f6ed0372ff, type: 2}
   m_sharedMaterial: {fileID: -6863570719851919103, guid: 511e856d8a1fb2b4aad260f6ed0372ff, type: 2}
